@@ -1,5 +1,5 @@
-const catchAsync = require('../utils/catchAsync');
 const { Configuration, OpenAIApi } = require('openai');
+const catchAsync = require('../utils/catchAsync');
 require('dotenv').config();
 
 const configuration = new Configuration({
@@ -13,7 +13,6 @@ const chat = catchAsync(async (req, res) => {
     model: 'text-davinci-003',
     prompt: question,
   });
-  console.log(completion.data.choices[0].text);
 
   res.status(200).send(completion.data.choices[0].text);
 });
