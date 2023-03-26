@@ -1,27 +1,23 @@
 /**
  *
- * @param message
  * @param payload
- * @returns {{package, message, status: boolean}}
+ * @returns {{status: boolean}}
  */
-exports.successResponse = (message, payload) => {
+exports.successResponse = (payload) => {
     return {
         status: true,
-        message: message,
-        package: payload
+        payload
     }
 }
 
 /**
  *
- * @param message
  * @param payload
- * @returns {{message, status: boolean}}
+ * @returns {{status: boolean}}
  */
-exports.failResponse = (message, payload = null) => {
+exports.failResponse = (payload = null) => {
     let response = {
         status: false,
-        message: message
     }
 
     if (payload) {
